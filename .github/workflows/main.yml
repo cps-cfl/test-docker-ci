@@ -19,13 +19,13 @@ jobs:
     environment: CFL_DOCKER
     runs-on: ubuntu-latest
     steps:
-      - shell: bash
-        env:
-          USERNAME: ${{ secrets.CFL_DOCKER_USERNAME }}
-        run: echo "Logging in as $USERNAME"
       - name: Login to CoreFiling docker
         uses: docker/login-action@v1
         with:
           registry: docker.corefiling.com
           username: ${{ secrets.CFL_DOCKER_USERNAME }}
           password: ${{ secrets.CFL_DOCKER_PASSWORD }}
+      - shell: bash
+        env:
+          USERNAME: ${{ secrets.CFL_DOCKER_USERNAME }}
+        run: echo "Logging in as $USERNAME"
