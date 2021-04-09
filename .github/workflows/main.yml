@@ -1,6 +1,5 @@
 # This is a basic workflow to help you get started with Actions
-
-name: CI
+name: test-login
 
 # Controls when the action will run. 
 on:
@@ -28,4 +27,4 @@ jobs:
       - shell: bash
         env:
           USERNAME: ${{ secrets.CFL_DOCKER_USERNAME }}
-        run: echo "Logging in as $USERNAME"
+        run: docker pull docker.corefiling.com/tnwsp/tnwsp:2.57.0
